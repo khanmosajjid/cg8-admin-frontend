@@ -189,6 +189,31 @@ export const createPool = async (
   } catch (e) {
     const detailsIndex = e?.message.indexOf("Details:");
     const detailsPart = e?.message.substring(detailsIndex);
+    
+
+    toast.error(detailsPart);
+
+    // window.location.reload();
+  }
+};
+
+export const disablePool = async (poolId) => {
+  try {
+    const data = await writeContract({
+      address: STAKING_CONTRACT,
+      abi: StakingABI,
+      functionName: "togglePoolStatus",
+      args: [poolId+1],
+    });
+    // console.log("data of allowance is------>", convertToEther(data));
+    const res = await waitForTransaction({
+      hash: data?.hash,
+    });
+    console.log("after transactin finished", res);
+    return res;
+  } catch (e) {
+    const detailsIndex = e?.message.indexOf("Details:");
+    const detailsPart = e?.message.substring(detailsIndex);
 
     toast.error(detailsPart);
     // window.location.reload();

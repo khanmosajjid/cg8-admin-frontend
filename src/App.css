@@ -160,5 +160,30 @@
   color: white;
 }
 
+.user-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-table tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.transaction-history .scrollable {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.transaction-history .more-transactions {
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+}
 
 

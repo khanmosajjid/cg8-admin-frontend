@@ -4,7 +4,8 @@ import {
   createPool,
   poolsDetails,
   getTotalPoolsCount,
-  convertToEther
+  convertToEther,
+  disablePool,
 } from "../utils/web3Utils";
 import { useAccount } from "wagmi";
 
@@ -31,30 +32,34 @@ function StakingPoolForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Here, you would integrate with your smart contract
+  
     console.log(
       timePeriod,
 
       rewardPercent,
       referralRewardPercent
     );
-    await createPool(
-      timePeriod,
+    let res = await createPool(
+      timePeriod * 24 * 60 * 60,
       rewardPercent * 100,
       referralRewardPercent * 100
     );
-    //  window.location.reload()
+    if (res.status == "success") {
+      alert("Pool Created Successfully");
+      window.location.reload();
+    }
   };
 
   const togglePoolStatus = async (index) => {
     try {
-      // Assuming 'updatePoolStatus' is a function to update the pool status
-      //  await updatePoolStatus(pools[index].id, !pools[index].isEnabled);
-
-      // Update local state to reflect changes
-      const updatedPools = [...pools];
-      updatedPools[index].isEnabled = !updatedPools[index].isEnabled;
-      setPools(updatedPools);
+      let res = await disablePool(index);
+      if ((res.status = "success")) {
+        alert("pool status updated");
+        window.location.reload();
+      } else {
+        alert("something went wrong!");
+        window.location.reload();
+      }
     } catch (error) {
       console.error("Error toggling pool status:", error);
     }
@@ -68,7 +73,7 @@ function StakingPoolForm() {
             type="number"
             value={timePeriod}
             onChange={(e) => setTimePeriod(e.target.value)}
-            placeholder="Time Period"
+            placeholder="Time Period(In Days)"
           />
 
           <input
@@ -100,15 +105,14 @@ function StakingPoolForm() {
           <tbody>
             {pools.map((pool, index) => (
               <tr key={index}>
-               
                 <td>{index + 1}</td>
-                <td>{  (Number(pool[0]) / (24 * 60 * 60)).toFixed(2)} Days</td>
+                <td>{(Number(pool[0]) / (24 * 60 * 60)).toFixed(2)} Days</td>
                 <td>{Number(pool[3]) / 100}</td>
                 <td>{Number(pool[4]) / 100}</td>
                 <td>
                   {/* Toggle Button */}
                   <button onClick={() => togglePoolStatus(index)}>
-                    {pool.isEnabled ? "Disable" : "Enable"}
+                    {pool[5] ? "Disable" : "Enable"}
                   </button>
                 </td>
               </tr>
