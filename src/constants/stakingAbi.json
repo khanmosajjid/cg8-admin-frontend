@@ -96,6 +96,19 @@
         "type": "function"
     },
     {
+        "inputs": [],
+        "name": "getCurrentCgatePrice",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
                 "internalType": "uint256",
@@ -195,7 +208,7 @@
             },
             {
                 "internalType": "uint256",
-                "name": "rewardPercentPerStakedTokenPerDay",
+                "name": "rewardPercentPerStakedTokenPerYear",
                 "type": "uint256"
             },
             {
@@ -464,16 +477,24 @@
             },
             {
                 "internalType": "uint256",
-                "name": "_amount",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
                 "name": "_stakeId",
                 "type": "uint256"
             }
         ],
         "name": "unStakeIndividual",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "newPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateCurrentCgatePrice",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -522,6 +543,11 @@
                 "internalType": "address",
                 "name": "referrer",
                 "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "depositedValueInDollars",
+                "type": "uint256"
             }
         ],
         "stateMutability": "view",

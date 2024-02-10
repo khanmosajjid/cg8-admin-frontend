@@ -107,7 +107,7 @@ export const poolsDetails = async (account) => {
   try {
     const pools = [];
     const noOfPools = await getTotalPoolsCount();
-    for (let i = 1; i <= noOfPools; i++) {
+    for (let i = 0; i <noOfPools; i++) {
       const data = await readContract({
         address: STAKING_CONTRACT,
         abi: StakingABI,
@@ -115,7 +115,7 @@ export const poolsDetails = async (account) => {
         args: [i],
       });
 
-      pools[i - 1] = data;
+      pools[i] = data;
     }
     return pools;
   } catch (e) {
@@ -203,7 +203,7 @@ export const disablePool = async (poolId) => {
       address: STAKING_CONTRACT,
       abi: StakingABI,
       functionName: "togglePoolStatus",
-      args: [poolId+1],
+      args: [poolId],
     });
     // console.log("data of allowance is------>", convertToEther(data));
     const res = await waitForTransaction({
