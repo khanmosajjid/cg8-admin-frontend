@@ -6,14 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { bscTestnet } from "wagmi/chains";
+import { bscTestnet,bsc } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 const { chains, publicClient } = configureChains(
-  [bscTestnet],
+  [bsc],
   [alchemyProvider({ apiKey: "" }), publicProvider()]
 );
 const { connectors } = getDefaultWallets({
