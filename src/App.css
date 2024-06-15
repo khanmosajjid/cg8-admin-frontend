@@ -1,184 +1,218 @@
 /* App.css */
 .sidebar {
-    width: 200px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: #333;
-    padding: 20px;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #1a202c;
+  padding: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
 }
 
 .sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
+  color: #cbd5e0;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #2d3748;
+  color: #fff;
 }
 
 .content {
-    margin-left: 220px;
-    padding: 20px;
+  margin-left: 270px;
+  padding: 20px;
 }
 
 /* StakingPoolForm.css */
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .form-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .form-container input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-container input:focus {
+  border-color: #718096;
+  outline: none;
 }
 
 .form-container button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: blue;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4299e1;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .form-container button:hover {
-    background-color: darkblue;
+  background-color: #3182ce;
 }
 
 .connect-button-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 /* Header.css */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1a202c;
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .header h1 {
-    margin: 0;
-    font-size: 1.5em;
+  margin: 0;
+  font-size: 1.5em;
 }
 
 .connect-button-container {
-    /* Add styles if needed */
+  /* Add styles if needed */
 }
 
 /* PoolsTable.css */
 .pools-table-container {
-    margin-top: 30px;
-    overflow-x: auto; /* Adds horizontal scrolling for smaller screens */
+  margin-top: 30px;
+  overflow-x: auto; /* Adds horizontal scrolling for smaller screens */
 }
 
 .pools-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  border-radius: 8px;
 }
 
 .pools-table th,
 .pools-table td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: left;
-    font-size: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
 }
 
 .pools-table th {
-    background-color: #4CAF50;
-    color: white;
-    font-weight: bold;
+  background-color: #4299e1;
+  color: white;
+  font-weight: bold;
 }
 
 .pools-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f7fafc;
 }
 
 .pools-table tr:hover {
-    background-color: #ddd;
+  background-color: #e2e8f0;
 }
 
 /* Responsive table */
 @media screen and (max-width: 600px) {
-    .pools-table td {
-        display: block;
-        text-align: right;
-    }
-    .pools-table td::before {
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    .pools-table tr {
-        border-bottom: 3px solid #ddd;
-        display: block;
-        margin-bottom: .625em;
-    }
+  .pools-table td {
+    display: block;
+    text-align: right;
+  }
+
+  .pools-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .pools-table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
 }
+
 /* Add styles for the toggle button in PoolsTable.css */
 .pools-table button {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .pools-table button:enabled {
-  background-color: #4caf50;
+  background-color: #4299e1;
   color: white;
 }
 
+.pools-table button:enabled:hover {
+  background-color: #3182ce;
+}
+
 .pools-table button:disabled {
-  background-color: #f44336;
+  background-color: #f56565;
   color: white;
 }
 
 .user-table table {
   width: 100%;
   border-collapse: collapse;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
 }
 
-.user-table th, .user-table td {
-  border: 1px solid black;
-  padding: 8px;
+.user-table th,
+.user-table td {
+  border: 1px solid #e2e8f0;
+  padding: 12px 15px;
   text-align: left;
 }
 
 .user-table tr:hover {
-  background-color: #f5f5f5;
+  background-color: #e2e8f0;
   cursor: pointer;
 }
 
 .transaction-history .scrollable {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .transaction-history .more-transactions {
@@ -186,4 +220,26 @@
   margin-top: 10px;
 }
 
+/* Mobile view styles */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0; /* Remove the margin for the sidebar */
+  }
 
+  .toggle-btn {
+    display: block; /* Show the toggle button on mobile view */
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-icon {
+    font-size: 36px;
+    color: white;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
